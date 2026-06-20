@@ -1,0 +1,148 @@
+/* ==============================================
+   COVER.CSS — DESIGN2 Dayak Cover
+=============================================== */
+#cover-screen {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 40% 55%, #8B1A1A 0%, #3D0A0A 50%, #1C1109 100%);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease);
+  will-change: opacity, transform, filter;
+}
+#cover-screen.hide { opacity:0; transform:scale(1.06); filter:blur(16px); pointer-events:none; }
+
+.cover-photo-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse at 50% 35%, #8B1A1A 0%, #5C0E0E 45%, #1C1109 100%);
+  background-size: cover; background-position: center;
+  transform: scale(1.05); transition: transform 8s ease;
+}
+#cover-screen:hover .cover-photo-bg { transform: scale(1.08); }
+
+/* ── Dayak border image atas & bawah ── */
+.cover-dayak-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 120px;
+  z-index: 2; pointer-events: none;
+  background: url('../assets/asset_dayak/Beautiful Dayak Border.jpeg') top center / cover no-repeat;
+  opacity: 0.25;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, transparent 100%);
+}
+.cover-dayak-bot {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  z-index: 2; pointer-events: none;
+  background: url('../assets/asset_dayak/Beautiful Dayak Border.jpeg') bottom center / cover no-repeat;
+  opacity: 0.25; transform: scaleY(-1);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, transparent 100%);
+}
+
+/* ── Dayak motif sudut ── */
+.cover-motif-tl {
+  position: absolute; top: 0; left: 0;
+  width: 240px; height: 240px; z-index: 2; pointer-events: none;
+  background: url('../assets/asset_dayak/Modern Kalimantan Dayak Motifs Vector, Motive, Dayak, Dayak Motifs PNG and Vector with Transparent Background for Free Download.jpeg') center/cover no-repeat;
+  opacity: 0.22;
+  mask-image: radial-gradient(circle at top left, black 35%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at top left, black 35%, transparent 70%);
+}
+.cover-motif-br {
+  position: absolute; bottom: 0; right: 0;
+  width: 240px; height: 240px; z-index: 2; pointer-events: none;
+  background: url('../assets/asset_dayak/Modern Kalimantan Dayak Motifs Vector, Motive, Dayak, Dayak Motifs PNG and Vector with Transparent Background for Free Download.jpeg') center/cover no-repeat;
+  opacity: 0.22; transform: rotate(180deg);
+  mask-image: radial-gradient(circle at top left, black 35%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at top left, black 35%, transparent 70%);
+}
+
+/* ── Frame emas ── */
+.cover-frame {
+  position: absolute; inset: 16px;
+  border: 1px solid rgba(241,196,15,0.45); border-radius: 4px;
+  pointer-events: none; z-index: 3;
+}
+.cover-frame::after {
+  content:''; position: absolute; inset: 8px;
+  border: 1px solid rgba(241,196,15,0.20); border-radius: 2px;
+}
+.cover-corner { position: absolute; width: 44px; height: 44px; border-color: var(--kuning); border-style: solid; opacity: 0.70; z-index: 4; }
+.cover-corner.tl { top:22px; left:22px;   border-width:2px 0 0 2px; }
+.cover-corner.tr { top:22px; right:22px;  border-width:2px 2px 0 0; }
+.cover-corner.bl { bottom:22px; left:22px;  border-width:0 0 2px 2px; }
+.cover-corner.br { bottom:22px; right:22px; border-width:0 2px 2px 0; }
+
+/* ── 5-warna Dayak stripe di atas & bawah frame ── */
+.cover-stripe-t { position: absolute; top: 16px; left: 16px; right: 16px; height: 4px; z-index: 5; display: flex; }
+.cover-stripe-b { position: absolute; bottom: 16px; left: 16px; right: 16px; height: 4px; z-index: 5; display: flex; }
+.cover-stripe-t span, .cover-stripe-b span { flex: 1; display: block; }
+.cs-merah  { background: var(--merah); }
+.cs-kuning { background: var(--kuning); }
+.cs-putih  { background: var(--putih); opacity: 0.6; }
+.cs-hitam  { background: var(--hitam2); }
+.cs-hijau  { background: var(--hijau); }
+
+/* ── Content ── */
+.cover-content {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 48px 32px;
+  position: relative; z-index: 5;
+}
+.cover-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px; font-weight: 400; letter-spacing: 7px; text-transform: uppercase;
+  color: var(--kuning); margin-bottom: 10px;
+  opacity: 0; animation: fade-up 0.8s var(--ease) 0.3s forwards;
+}
+.cover-dayak-icon {
+  width: 72px; height: 72px; margin: 0 auto 8px;
+  opacity: 0; animation: fade-up 0.7s var(--ease) 0.45s forwards;
+  animation-fill-mode: forwards;
+}
+.cover-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(52px, 14vw, 90px);
+  color: var(--putih); line-height: 1.05;
+  text-shadow: 0 6px 32px rgba(0,0,0,0.55), 0 0 60px rgba(241,196,15,0.15);
+  margin-bottom: 14px;
+  opacity: 0; animation: fade-up 0.9s var(--ease) 0.6s forwards;
+}
+.cover-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(14px, 3vw, 18px); color: var(--kuning-lt); letter-spacing: 4px;
+  margin-bottom: 24px;
+  opacity: 0; animation: fade-up 0.8s var(--ease) 0.85s forwards;
+}
+.cover-guest-card {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(241,196,15,0.40);
+  backdrop-filter: blur(14px); border-radius: 14px;
+  padding: 12px 36px; margin-bottom: 24px;
+  font-family: 'Poppins', sans-serif; font-size: 12px; color: var(--putih);
+  letter-spacing: 1px; line-height: 1.9;
+  opacity: 0; animation: fade-up 0.8s var(--ease) 1.05s forwards;
+}
+.cover-guest-card .guest-label { opacity: 0.60; }
+.cover-guest-card .guest-name  { display:block; font-weight:600; color:var(--kuning); font-size:16px; }
+
+.cover-ornament-line {
+  width: 260px; margin: 0 auto 24px;
+  opacity: 0; animation: fade-up 0.7s var(--ease) 1.1s forwards;
+}
+.btn-open {
+  width: 230px; height: 58px;
+  background: linear-gradient(135deg, var(--merah), var(--merah-tua));
+  color: var(--kuning-lt); border-radius: var(--r-pill);
+  font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: 1.5px solid rgba(241,196,15,0.55);
+  box-shadow: 0 8px 32px rgba(192,57,43,0.55);
+  transition: var(--t); position: relative; overflow: hidden;
+  opacity: 0; animation: fade-up 0.8s var(--ease) 1.3s forwards;
+}
+.btn-open::before {
+  content:''; position: absolute; inset:0;
+  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%; animation: shimmer 2.5s linear infinite;
+}
+.btn-open:hover { transform: scale(1.05); box-shadow: 0 14px 44px rgba(192,57,43,0.75); }
+.btn-open i { margin-right: 8px; }

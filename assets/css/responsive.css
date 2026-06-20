@@ -1,0 +1,58 @@
+/* ==============================================
+   RESPONSIVE.CSS — DESIGN2 Dayak
+=============================================== */
+@media (max-width: 1024px) {
+  .sec-inner { padding: 0 var(--pad-tab); }
+  #hero,#quote,#couple,#love-story,#countdown,#event,#streaming,#gallery,#video-sec,#gift,#rsvp,#wishes,#maps { padding: 90px 0; }
+  .hero-grid { gap: 48px; }
+  .hero-photo-frame { width: 320px; height: 400px; }
+  .hero-ring  { width: 360px; height: 440px; }
+  .hero-ring2 { display: none; }
+  .gallery-masonry { columns: 3; padding: 0 var(--pad-tab); }
+  .gift-grid { grid-template-columns: 1fr 1fr; max-width: 680px; }
+  .love-story-inner,.wishes-inner,.maps-inner,.video-wrap { padding: 0 var(--pad-tab); }
+}
+
+@media (max-width: 768px) {
+  :root { --gap-sec: 70px; }
+  .sec-inner { padding: 0 var(--pad-mob); }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+  .hero-date-pill { justify-content: center; }
+  .hero-dayak-tag { justify-content: center; }
+  .hero-photo-frame { width: 280px; height: 340px; margin: 0 auto; }
+  .hero-ring  { width: 310px; height: 370px; }
+  .hero-dayak-accent { display: none; }
+  .quote-card { padding: 40px 20px; }
+  .couple-card { padding: 36px 20px; }
+  .love-story-inner { padding: 0 var(--pad-mob); }
+  .timeline::before { left: 22px; }
+  .tl-dot { width: 46px; height: 46px; font-size: 1rem; }
+  .tl-item { gap: 18px; }
+  .cd-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
+  .countdown-card { padding: 44px 20px; }
+  .event-card { padding: 32px 20px; }
+  .event-btns { flex-direction: column; align-items: center; }
+  .streaming-card { padding: 48px 20px; }
+  .gallery-masonry { columns: 2; padding: 0 var(--pad-mob); }
+  .gift-grid { grid-template-columns: 1fr; max-width: 400px; padding: 0 var(--pad-mob); }
+  .rsvp-card { padding: 36px 18px; }
+  .radio-group { flex-direction: column; }
+  .radio-opt { min-width: unset; }
+  .wishes-inner { padding: 0 var(--pad-mob); }
+  .wish-form-card { padding: 28px 18px; }
+  .maps-inner { padding: 0 var(--pad-mob); }
+  .map-wrap { height: 280px; }
+  .map-btns { flex-direction: column; align-items: center; }
+  .video-wrap { padding: 0 var(--pad-mob); }
+  .float-group { bottom: 16px; right: 16px; }
+  .share-wrap  { bottom: 16px; left: 16px; }
+}
+
+@media (max-width: 480px) {
+  .sec-title     { font-size: 2.3rem; }
+  .hero-names    { font-size: 2.7rem; }
+  .cover-name    { font-size: 44px; }
+  .cd-num        { font-size: 2.1rem; }
+  .closing-names { font-size: 2.7rem; }
+  .btn-open      { width: 200px; height: 54px; font-size: 11px; }
+}

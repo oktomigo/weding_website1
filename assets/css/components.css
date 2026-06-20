@@ -1,0 +1,66 @@
+/* ==============================================
+   COMPONENTS.CSS — DESIGN2 Dayak
+=============================================== */
+#main-content {
+  opacity: 0; visibility: hidden; transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease, visibility .8s ease;
+}
+#main-content.visible { opacity:1; visibility:visible; transform:translateY(0); }
+
+/* ── Floating ── */
+.float-group { position:fixed; bottom:28px; right:28px; display:flex; flex-direction:column; align-items:center; gap:12px; z-index:7000; }
+.float-btn {
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(28,17,9,0.88); border:1.5px solid rgba(241,196,15,0.52);
+  backdrop-filter:blur(14px); color:var(--kuning); font-size:1.1rem;
+  display:flex; align-items:center; justify-content:center;
+  transition:var(--t); box-shadow:0 4px 22px rgba(0,0,0,0.42); cursor:pointer;
+}
+.float-btn:hover { transform:scale(1.10); background:rgba(28,17,9,0.97); }
+.float-btn.playing .btn-music-icon { animation:spin-slow 3s linear infinite; }
+.float-btn.playing { border-color:var(--kuning); box-shadow:0 0 0 3px rgba(241,196,15,0.22),0 4px 22px rgba(0,0,0,0.38); }
+.float-scroll-top { opacity:0; pointer-events:none; transition:var(--t); }
+.float-scroll-top.visible { opacity:1; pointer-events:all; }
+
+/* ── Share ── */
+.share-wrap { position:fixed; bottom:28px; left:28px; z-index:7000; }
+.share-toggle {
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(28,17,9,0.88); border:1.5px solid rgba(241,196,15,0.52);
+  backdrop-filter:blur(14px); color:var(--kuning); font-size:1.1rem;
+  display:flex; align-items:center; justify-content:center;
+  transition:var(--t); cursor:pointer; box-shadow:0 4px 22px rgba(0,0,0,0.38);
+}
+.share-toggle:hover { transform:scale(1.10); }
+.share-options {
+  position:absolute; bottom:60px; left:0;
+  display:flex; flex-direction:column; gap:10px;
+  opacity:0; pointer-events:none; transition:var(--t); transform:translateY(14px);
+}
+.share-options.open { opacity:1; pointer-events:all; transform:translateY(0); }
+.share-btn { width:46px; height:46px; border-radius:50%; color:#fff; font-size:1rem; display:flex; align-items:center; justify-content:center; transition:var(--t); box-shadow:0 4px 18px rgba(0,0,0,0.32); }
+.share-btn:hover { transform:scale(1.12); }
+.share-wa { background:#25D366; }
+.share-ig { background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+.share-tg { background:#0088CC; }
+
+/* ── Form ── */
+.form-grp { margin-bottom: 20px; }
+.form-label { display:block; font-family:'Poppins',sans-serif; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--kuning-tua); font-weight:600; margin-bottom:8px; }
+.form-input, .form-select {
+  width:100%; padding:16px 18px;
+  border:2px solid rgba(241,196,15,0.25); border-radius:var(--r-sm);
+  background:var(--c-card); font-family:'Poppins',sans-serif; font-size:14px; color:var(--c-text);
+  transition:var(--t);
+}
+.form-input:focus, .form-select:focus { border-color:var(--kuning); box-shadow:0 0 0 4px rgba(241,196,15,0.14); }
+.form-textarea {
+  width:100%; padding:16px 18px;
+  border:2px solid rgba(241,196,15,0.25); border-radius:var(--r-sm); background:var(--c-card);
+  font-family:'Poppins',sans-serif; font-size:14px; color:var(--c-text); resize:vertical; min-height:110px;
+  transition:var(--t);
+}
+.form-textarea:focus { border-color:var(--kuning); box-shadow:0 0 0 4px rgba(241,196,15,0.14); }
+
+[data-aos] { pointer-events:none; }
+[data-aos].aos-animate { pointer-events:auto; }

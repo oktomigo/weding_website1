@@ -1,0 +1,711 @@
+/* ==============================================
+   SECTIONS.CSS — DESIGN2 Dayak Wedding
+   Warna: Merah · Kuning · Putih · Hitam · Hijau
+=============================================== */
+
+/* ══════════════════════════════
+   §1  HERO
+══════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(110,31,24,0.97) 0%, rgba(146,43,33,0.90) 50%, rgba(28,17,9,0.98) 100%);
+  display: flex; align-items: center;
+  padding: var(--gap-sec) 0; position: relative;
+}
+/* Dayak motif sebagai background pattern hero */
+#hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: url('../../../asset_dayak/Modern Kalimantan Dayak Motifs Vector, Motive, Dayak, Dayak Motifs PNG and Vector with Transparent Background for Free Download.jpeg') center/cover no-repeat;
+  opacity: 0.05;
+}
+/* Stripe 5-warna di bawah hero */
+#hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 5px; z-index: 3;
+  background: linear-gradient(90deg,
+    var(--merah) 0%,  var(--merah) 20%,
+    var(--kuning) 20%, var(--kuning) 40%,
+    var(--putih) 40%, var(--putih) 60%,
+    var(--hitam2) 60%, var(--hitam2) 80%,
+    var(--hijau) 80%, var(--hijau) 100%
+  );
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center; position: relative; z-index: 1;
+}
+.hero-tag {
+  font-family: 'Poppins', sans-serif; font-size: 11px;
+  letter-spacing: 6px; text-transform: uppercase;
+  color: var(--kuning); display: block; margin-bottom: 16px;
+}
+.hero-dayak-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 8px; font-family: 'Poppins', sans-serif;
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--merah); opacity: 0.90;
+}
+.hero-dayak-tag::before, .hero-dayak-tag::after { content:'◆'; font-size:6px; color:var(--kuning); }
+.hero-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  color: var(--putih); line-height: 1.1;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.55);
+  margin-bottom: 20px;
+}
+.hero-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+  color: rgba(253,250,244,0.82); font-style: italic;
+  margin-bottom: 28px; line-height: 1.75;
+}
+.hero-date-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(241,196,15,0.40);
+  backdrop-filter: blur(10px);
+  border-radius: var(--r-pill); padding: 11px 26px;
+  color: var(--kuning); font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; letter-spacing: 2.5px;
+}
+.hero-photo-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
+.hero-photo-frame {
+  width: 380px; height: 480px;
+  border-radius: 52% 48% 50% 50% / 62% 58% 42% 38%;
+  background: linear-gradient(160deg, #8B1A1A 0%, #5C0E0E 45%, #1C1109 100%);
+  border: 3px solid rgba(241,196,15,0.45);
+  box-shadow: 0 32px 88px rgba(0,0,0,0.55), 0 0 0 9px rgba(241,196,15,0.08);
+  overflow: hidden; position: relative;
+}
+.hero-photo-frame::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(28,17,9,0.65) 100%);
+}
+.hero-photo-inner {
+  width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 50% 30%, rgba(241,196,15,0.07) 0%, transparent 65%),
+              linear-gradient(160deg, #9B2A2A 0%, #6B1A1A 55%, #1C1109 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; }
+.hero-photo-placeholder { font-family:'Great Vibes',cursive; font-size:2.2rem; color:rgba(241,196,15,0.40); text-align:center; }
+.hero-ring {
+  position: absolute; width: 424px; height: 526px;
+  border: 1px solid rgba(241,196,15,0.22);
+  border-radius: 52% 48% 50% 50% / 62% 58% 42% 38%;
+  top: -22px; left: -22px;
+  animation: pulse-ring 4s ease-in-out infinite; pointer-events: none;
+}
+.hero-ring2 {
+  position: absolute; width: 460px; height: 560px;
+  border: 1px solid rgba(241,196,15,0.09);
+  border-radius: 52% 48% 50% 50% / 62% 58% 42% 38%;
+  top: -40px; left: -40px;
+  animation: pulse-ring 4s ease-in-out 1s infinite; pointer-events: none;
+}
+/* Dayak motif image sebagai accent samping foto */
+.hero-dayak-accent {
+  position: absolute; right: -32px; bottom: 20px;
+  width: 110px; height: 110px; border-radius: 50%;
+  background: url('../../../asset_dayak/download.jpeg') center/cover no-repeat;
+  opacity: 0.14; pointer-events: none;
+  animation: float-y 6s ease-in-out infinite;
+}
+
+/* ══════════════════════════════
+   §2  OPENING QUOTE
+══════════════════════════════ */
+#quote { background: var(--putih-off); padding: var(--gap-sec) 0; }
+.quote-card {
+  max-width: 700px; margin: 0 auto;
+  background: #fff; border-radius: var(--r-card);
+  padding: 56px 44px; text-align: center;
+  box-shadow: var(--sh-deep);
+  border: 1px solid rgba(241,196,15,0.20);
+  position: relative; overflow: hidden;
+}
+/* Dayak 5-warna stripe di atas quote card */
+.quote-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg,
+    var(--merah) 0%, var(--merah) 20%,
+    var(--kuning) 20%, var(--kuning) 40%,
+    var(--putih-off) 40%, var(--putih-off) 60%,
+    var(--hitam2) 60%, var(--hitam2) 80%,
+    var(--hijau) 80%, var(--hijau) 100%
+  );
+}
+.quote-card::after {
+  content: '\201C'; font-family:'Cormorant Garamond',serif;
+  font-size: 130px; color: rgba(241,196,15,0.08);
+  position: absolute; top: -14px; left: 16px;
+  line-height: 1; pointer-events: none;
+}
+/* Dayak border image di dalam quote card */
+.quote-dayak-img {
+  width: 100%; height: 28px; object-fit: cover;
+  opacity: 0.18; margin: 0 auto 18px; display: block; border-radius: 3px;
+}
+.quote-arabic {
+  font-family:'Cormorant Garamond',serif;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  color: var(--c-text); direction: rtl;
+  line-height: 2.1; margin-bottom: 22px; font-weight: 500;
+}
+.quote-translation {
+  font-family:'Cormorant Garamond',serif;
+  font-size: clamp(0.95rem, 2vw, 1.12rem);
+  color: #7A5A2A; font-style: italic;
+  line-height: 1.9; margin-bottom: 18px;
+}
+.quote-source { font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2.5px; color:var(--kuning-tua); font-weight:500; text-transform:uppercase; }
+
+/* ══════════════════════════════
+   §3  BRIDE & GROOM
+══════════════════════════════ */
+#couple {
+  background: linear-gradient(180deg, var(--hitam2) 0%, var(--merah-gelap) 100%);
+  padding: var(--gap-sec) 0; position: relative;
+}
+#couple::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: url('../../../asset_dayak/download (1).jpeg') center/cover no-repeat;
+  opacity: 0.04;
+}
+/* Cover Page Idea sebagai accent image di tengah section */
+.couple-dayak-mid {
+  width: 100%; height: 40px; object-fit: cover;
+  opacity: 0.14; display: block; margin: 0 auto;
+}
+.couple-wrap { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0; position: relative; z-index: 1; }
+.couple-card {
+  width: 100%; background: var(--c-card);
+  border-radius: var(--r-card); padding: 48px 40px;
+  text-align: center; box-shadow: var(--sh-deep);
+  border: 1px solid rgba(241,196,15,0.18);
+  position: relative; overflow: hidden;
+}
+.couple-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg,
+    var(--merah) 0%, var(--merah) 20%,
+    var(--kuning) 20%, var(--kuning) 40%,
+    var(--putih-off) 40%, var(--putih-off) 60%,
+    var(--hitam2) 60%, var(--hitam2) 80%,
+    var(--hijau) 80%, var(--hijau) 100%
+  );
+}
+.couple-photo {
+  width: 175px; height: 175px; border-radius: 50%;
+  margin: 0 auto 22px;
+  border: 4px solid var(--kuning);
+  box-shadow: 0 0 0 7px rgba(241,196,15,0.14), var(--sh-merah);
+  overflow: hidden; background: #F5E0D0;
+  display: flex; align-items: center; justify-content: center;
+}
+.couple-photo img { width:100%; height:100%; object-fit:cover; }
+.couple-photo .photo-placeholder { font-size:3.2rem; color:rgba(241,196,15,0.45); }
+.couple-name { font-family:'Great Vibes',cursive; font-size:clamp(2rem,5vw,2.8rem); color:var(--merah); margin-bottom:6px; }
+.couple-fullname { font-family:'Cormorant Garamond',serif; font-size:1.02rem; color:var(--c-text); font-weight:600; letter-spacing:1.5px; margin-bottom:14px; }
+.couple-parents { font-family:'Cormorant Garamond',serif; font-size:0.94rem; color:#7A5A2A; line-height:1.9; font-style:italic; margin-bottom:16px; }
+.couple-bio { font-family:'Poppins',sans-serif; font-size:0.81rem; color:#7A5A2A; line-height:1.85; }
+.ampersand-div {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(3rem,9vw,5.5rem); color:var(--kuning);
+  text-align:center; text-shadow:0 4px 28px rgba(241,196,15,0.30);
+  line-height:1; display:block; margin:8px 0; padding:6px 0;
+}
+
+/* ══════════════════════════════
+   §4  LOVE STORY
+══════════════════════════════ */
+#love-story {
+  background: linear-gradient(180deg, var(--merah-gelap) 0%, var(--hitam2) 100%);
+  padding: var(--gap-sec) 0;
+}
+.love-story-inner { max-width: 840px; margin: 0 auto; padding: 0 var(--pad-desk); }
+.timeline { position: relative; padding-top: 16px; }
+.timeline::before {
+  content: ''; position: absolute; left: 30px; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(180deg, var(--kuning), var(--merah), var(--hijau), var(--kuning));
+}
+.tl-item { display: flex; gap: 36px; margin-bottom: 60px; align-items: flex-start; }
+.tl-dot {
+  flex-shrink: 0; width: 62px; height: 62px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--merah), var(--merah-tua));
+  border: 2px solid var(--kuning);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: var(--kuning);
+  box-shadow: 0 0 0 7px rgba(241,196,15,0.14);
+  position: relative; z-index: 1;
+}
+.tl-card {
+  flex: 1; background: var(--c-card);
+  border-radius: 20px; padding: 32px 28px;
+  box-shadow: var(--sh-deep);
+  border-left: 3px solid var(--kuning);
+  position: relative;
+}
+.tl-card::before {
+  content: ''; position: absolute; left: -16px; top: 22px;
+  border: 9px solid transparent; border-right-color: var(--c-card);
+}
+.tl-year { font-family:'Poppins',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--kuning-tua); margin-bottom:7px; }
+.tl-title { font-family:'Cormorant Garamond',serif; font-size:1.45rem; font-weight:600; color:var(--merah); margin-bottom:10px; }
+.tl-text  { font-family:'Poppins',sans-serif; font-size:0.84rem; color:#7A5A2A; line-height:1.85; }
+
+/* ══════════════════════════════
+   §5  COUNTDOWN
+══════════════════════════════ */
+#countdown {
+  background: linear-gradient(180deg, var(--hitam2) 0%, var(--merah-gelap) 100%);
+  padding: var(--gap-sec) 0; position: relative;
+}
+/* Cover Page Idea sebagai subtle bg */
+#countdown::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: url('../../../asset_dayak/Cover Page Idea 012.jpeg') center/cover no-repeat;
+  opacity: 0.05;
+}
+.countdown-card {
+  max-width: 820px; margin: 0 auto;
+  background: var(--putih-off); border-radius: var(--r-card);
+  padding: 64px 48px; text-align: center;
+  box-shadow: var(--sh-deep);
+  border: 1px solid rgba(241,196,15,0.24);
+  position: relative; overflow: hidden; z-index: 1;
+}
+.countdown-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg,
+    var(--merah) 0%, var(--merah) 20%,
+    var(--kuning) 20%, var(--kuning) 40%,
+    var(--putih-off) 40%, var(--putih-off) 60%,
+    var(--hitam2) 60%, var(--hitam2) 80%,
+    var(--hijau) 80%, var(--hijau) 100%
+  );
+}
+/* Dayak border image di dalam countdown */
+.cd-dayak-img {
+  width: 220px; height: 28px; object-fit: cover;
+  opacity: 0.16; margin: 0 auto 16px; display: block; border-radius: 3px;
+}
+.cd-label { font-family:'Cormorant Garamond',serif; font-size:0.95rem; letter-spacing:5px; text-transform:uppercase; color:var(--c-muted); margin-bottom:8px; }
+.cd-heading { font-family:'Great Vibes',cursive; font-size:clamp(2rem,5vw,3.2rem); color:var(--merah); margin-bottom:44px; }
+.cd-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; max-width:600px; margin:0 auto 28px; }
+.cd-box {
+  border: 2px solid var(--kuning); border-radius: 18px;
+  padding: 26px 8px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, rgba(241,196,15,0.07) 0%, rgba(192,57,43,0.04) 100%);
+}
+.cd-box::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(241,196,15,0.55), transparent);
+}
+.cd-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,5.5vw,3.4rem); font-weight:600; color:var(--merah);
+  display:block; line-height:1; animation:flip-num 0.38s ease; perspective:400px;
+}
+.cd-unit { font-family:'Poppins',sans-serif; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--kuning-tua); margin-top:9px; display:block; }
+.cd-married { font-family:'Great Vibes',cursive; font-size:2.4rem; color:var(--merah); display:none; }
+.cd-sub { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--c-muted); font-style:italic; }
+
+/* ══════════════════════════════
+   §6  WEDDING EVENT
+══════════════════════════════ */
+#event { background: var(--putih-off); padding: var(--gap-sec) 0; }
+.event-cards { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+.event-card {
+  background: #fff; border-radius: var(--r-card);
+  padding: 44px 40px; text-align: center;
+  box-shadow: var(--sh-deep); border: 1px solid rgba(241,196,15,0.20);
+  transition: var(--t); position: relative; overflow: hidden;
+}
+.event-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--merah) 0%, var(--kuning) 50%, var(--hijau) 100%);
+}
+.event-card:hover { transform: translateY(-5px); box-shadow: var(--sh-lift); }
+/* Dayak motif image sebagai watermark di event card */
+.event-card::after {
+  content: ''; position: absolute; bottom: 0; right: 0;
+  width: 120px; height: 120px;
+  background: url('../../../asset_dayak/download.jpeg') center/cover no-repeat;
+  opacity: 0.04; pointer-events: none;
+}
+.event-badge {
+  display: inline-block; font-family:'Poppins',sans-serif;
+  font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  background: linear-gradient(135deg, var(--merah), var(--merah-tua));
+  color: var(--kuning-lt); border-radius: var(--r-pill);
+  padding: 6px 22px; margin-bottom: 20px;
+}
+.event-title { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:var(--merah); margin-bottom:20px; }
+.event-meta-row { display:flex; align-items:center; justify-content:center; gap:10px; font-family:'Poppins',sans-serif; font-size:0.855rem; color:#7A5A2A; margin-bottom:10px; }
+.event-meta-row i { color:var(--kuning-tua); width:16px; }
+.event-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:26px; }
+.btn-ev-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 26px; border-radius:var(--r-pill);
+  background:linear-gradient(135deg,var(--merah),var(--merah-tua));
+  color:var(--kuning-lt); font-family:'Poppins',sans-serif;
+  font-size:12px; font-weight:600; letter-spacing:1.5px;
+  box-shadow:0 5px 18px rgba(192,57,43,0.40); transition:var(--t);
+}
+.btn-ev-primary:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(192,57,43,0.58); }
+.btn-ev-outline {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 26px; border-radius:var(--r-pill);
+  border:2px solid var(--kuning); color:var(--kuning-tua);
+  font-family:'Poppins',sans-serif; font-size:12px; font-weight:600; letter-spacing:1.5px; transition:var(--t);
+}
+.btn-ev-outline:hover { background:var(--kuning); color:var(--hitam); transform:translateY(-2px); }
+.event-dayak-div { display:flex; align-items:center; justify-content:center; padding:4px 0; }
+
+/* ══════════════════════════════
+   §7  LIVE STREAMING
+══════════════════════════════ */
+#streaming {
+  background: linear-gradient(135deg, var(--hitam) 0%, var(--merah-gelap) 55%, var(--hitam2) 100%);
+  padding: var(--gap-sec) 0; position: relative;
+}
+/* Beautiful Dayak Border sebagai pattern bg */
+#streaming::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: url('../../../asset_dayak/Beautiful Dayak Border.jpeg') center/cover no-repeat;
+  opacity: 0.04;
+}
+.streaming-card {
+  max-width: 720px; margin: 0 auto;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(241,196,15,0.28);
+  border-radius: var(--r-card); padding: 64px 48px;
+  text-align: center; backdrop-filter: blur(12px); position: relative; z-index: 1;
+}
+.streaming-desc {
+  font-family:'Poppins',sans-serif; font-size:0.865rem;
+  color:rgba(253,250,244,0.62); line-height:1.85; margin-bottom:36px;
+  max-width:500px; margin-left:auto; margin-right:auto;
+}
+.btn-stream {
+  display:inline-flex; align-items:center; gap:12px;
+  padding:18px 42px; border-radius:var(--r-pill);
+  background:#FF0000; color:#fff; font-family:'Poppins',sans-serif;
+  font-size:13px; font-weight:600; letter-spacing:1.5px;
+  box-shadow:0 8px 28px rgba(255,0,0,0.38); transition:var(--t);
+}
+.btn-stream:hover { transform:translateY(-3px) scale(1.03); box-shadow:0 14px 40px rgba(255,0,0,0.52); }
+
+/* ══════════════════════════════
+   §8  GALLERY
+══════════════════════════════ */
+#gallery { background: var(--putih-off); padding: var(--gap-sec) 0; }
+.gallery-masonry { columns:4; column-gap:16px; max-width:var(--max-w); margin:0 auto; padding:0 var(--pad-desk); }
+.gallery-item {
+  break-inside:avoid; margin-bottom:16px; border-radius:16px; overflow:hidden;
+  cursor:pointer; position:relative; box-shadow:var(--sh-card); transition:var(--t);
+}
+.gallery-item:hover { transform:scale(1.025); box-shadow:var(--sh-lift); }
+.gallery-item:hover .gallery-overlay { opacity:1; }
+.gallery-thumb { width:100%; display:block; position:relative; background:#F5E0D0; }
+.gallery-thumb.h-tall   { padding-bottom:135%; }
+.gallery-thumb.h-normal { padding-bottom:76%; }
+.gallery-thumb.h-wide   { padding-bottom:62%; }
+.gallery-thumb-bg { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:2.4rem; opacity:0.35; }
+.gallery-thumb-bg img { width:100%; height:100%; object-fit:cover; opacity:1; }
+.gallery-overlay { position:absolute; inset:0; background:rgba(146,43,33,0.65); display:flex; align-items:center; justify-content:center; opacity:0; transition:var(--t); }
+.gallery-overlay i { font-size:2rem; color:var(--kuning); }
+
+#lightbox {
+  position:fixed; inset:0; z-index:8888; background:rgba(0,0,0,0.93);
+  display:flex; align-items:center; justify-content:center;
+  backdrop-filter:blur(12px); opacity:0; pointer-events:none; transition:opacity 0.35s ease;
+}
+#lightbox.open { opacity:1; pointer-events:all; }
+.lb-inner { position:relative; max-width:88vw; max-height:88vh; }
+.lb-close {
+  position:absolute; top:-44px; right:0; width:38px; height:38px; border-radius:50%;
+  background:rgba(241,196,15,0.75); color:var(--hitam);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:var(--t); font-size:1rem;
+}
+.lb-close:hover { background:var(--kuning); transform:rotate(90deg); }
+.lb-img { width:82vw; max-width:720px; height:80vh; object-fit:cover; border-radius:16px; display:block; }
+
+/* ══════════════════════════════
+   §9  VIDEO
+══════════════════════════════ */
+#video-sec { background: var(--merah-gelap); padding: var(--gap-sec) 0; }
+.video-wrap { max-width:840px; margin:0 auto; padding:0 var(--pad-desk); text-align:center; }
+.video-frame {
+  position:relative; border-radius:var(--r-card); overflow:hidden;
+  box-shadow:0 32px 88px rgba(0,0,0,0.60); aspect-ratio:16/9;
+  margin-top:44px; cursor:pointer;
+  background:linear-gradient(135deg,var(--hitam) 0%,var(--merah-gelap) 100%);
+}
+.video-thumb {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--hitam),var(--merah-tua));
+}
+.video-thumb img { width:100%; height:100%; object-fit:cover; }
+.play-btn {
+  width:94px; height:94px; border-radius:50%;
+  background:linear-gradient(135deg,var(--kuning),var(--kuning-tua));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.9rem; color:var(--merah-gelap);
+  animation:play-pulse 2.2s ease-in-out infinite;
+  position:relative; z-index:2; transition:var(--t);
+}
+.video-frame:hover .play-btn { transform:scale(1.09); }
+.video-caption {
+  position:absolute; bottom:22px; left:0; right:0; text-align:center; z-index:2;
+  font-family:'Cormorant Garamond',serif; font-size:1.1rem;
+  color:rgba(253,250,244,0.65); font-style:italic;
+}
+
+/* ══════════════════════════════
+   §10  WEDDING GIFT
+══════════════════════════════ */
+#gift { background: var(--putih-off); padding: var(--gap-sec) 0; }
+.gift-grid { max-width:960px; margin:0 auto; padding:0 var(--pad-desk); display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.gift-card {
+  background:#fff; border-radius:20px; padding:38px 28px; text-align:center;
+  box-shadow:var(--sh-deep); border:1px solid rgba(241,196,15,0.18);
+  transition:var(--t); position:relative; overflow:hidden;
+}
+.gift-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg, var(--merah) 0%, var(--kuning) 50%, var(--hijau) 100%);
+}
+.gift-card:hover { transform:translateY(-5px); box-shadow:var(--sh-lift); }
+.gift-icon {
+  width:64px; height:64px; border-radius:50%; margin:0 auto 20px;
+  background:linear-gradient(135deg,rgba(241,196,15,0.13),rgba(192,57,43,0.07));
+  border:2px solid var(--kuning);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; color:var(--kuning-tua);
+}
+.gift-card-title { font-family:'Cormorant Garamond',serif; font-size:1.18rem; font-weight:600; color:var(--merah); margin-bottom:7px; }
+.gift-bank { font-family:'Poppins',sans-serif; font-size:0.86rem; color:var(--kuning-tua); font-weight:600; margin-bottom:5px; }
+.gift-number { font-family:'Cormorant Garamond',serif; font-size:1.38rem; font-weight:600; color:var(--c-text); letter-spacing:1.5px; margin-bottom:4px; }
+.gift-name { font-family:'Poppins',sans-serif; font-size:0.76rem; color:var(--c-muted); margin-bottom:20px; }
+.gift-address-text { font-family:'Poppins',sans-serif; font-size:0.81rem; color:var(--c-muted); line-height:1.85; margin-bottom:20px; }
+.qris-box {
+  width:120px; height:120px; margin:0 auto 14px;
+  background:linear-gradient(135deg,var(--c-text),#5A3A1A);
+  border-radius:12px; display:flex; align-items:center; justify-content:center;
+  font-size:0.6rem; color:rgba(255,255,255,0.44); text-align:center; line-height:1.5; letter-spacing:1px;
+}
+.btn-copy {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 22px; border-radius:var(--r-pill);
+  border:2px solid var(--kuning); color:var(--kuning-tua);
+  font-family:'Poppins',sans-serif; font-size:11px; font-weight:600; letter-spacing:1.5px;
+  transition:var(--t); cursor:pointer;
+}
+.btn-copy:hover, .btn-copy.copied { background:var(--kuning); color:var(--hitam); transform:scale(1.04); }
+
+/* ══════════════════════════════
+   §11  RSVP
+══════════════════════════════ */
+#rsvp {
+  background:linear-gradient(180deg,var(--hitam2),var(--merah-gelap));
+  padding:var(--gap-sec) 0;
+}
+.rsvp-card {
+  max-width:620px; margin:0 auto;
+  background:var(--putih-off); border-radius:var(--r-card);
+  padding:56px 48px; box-shadow:var(--sh-deep);
+  position:relative; overflow:hidden;
+}
+.rsvp-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,
+    var(--merah) 0%, var(--merah) 20%,
+    var(--kuning) 20%, var(--kuning) 40%,
+    var(--putih-off) 40%, var(--putih-off) 60%,
+    var(--hitam2) 60%, var(--hitam2) 80%,
+    var(--hijau) 80%, var(--hijau) 100%
+  );
+}
+/* Dayak motif watermark di rsvp card */
+.rsvp-card::after {
+  content:''; position:absolute; bottom:0; right:0;
+  width:140px; height:140px;
+  background:url('../../../asset_dayak/Modern Kalimantan Dayak Motifs Vector, Motive, Dayak, Dayak Motifs PNG and Vector with Transparent Background for Free Download.jpeg') center/cover no-repeat;
+  opacity:0.04; pointer-events:none;
+}
+.radio-group { display:flex; gap:10px; flex-wrap:wrap; }
+.radio-opt {
+  flex:1; min-width:120px; border:2px solid rgba(241,196,15,0.25);
+  border-radius:var(--r-sm); padding:13px 14px;
+  display:flex; align-items:center; gap:10px; cursor:pointer; transition:var(--t);
+  font-family:'Poppins',sans-serif; font-size:13px; color:#7A5A2A;
+}
+.radio-opt:hover { border-color:var(--kuning); }
+.radio-opt.selected { border-color:var(--merah); background:rgba(192,57,43,0.06); color:var(--merah); font-weight:600; }
+.radio-dot { width:18px; height:18px; border-radius:50%; border:2px solid rgba(241,196,15,0.4); flex-shrink:0; transition:var(--t); }
+.radio-opt.selected .radio-dot { background:var(--merah); border-color:var(--merah); box-shadow:0 0 0 3px rgba(192,57,43,0.20); }
+.btn-rsvp {
+  width:100%; padding:17px;
+  background:linear-gradient(135deg,var(--merah),var(--merah-tua));
+  color:var(--kuning-lt); border-radius:var(--r-pill);
+  font-family:'Poppins',sans-serif; font-size:12px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase;
+  border:1px solid rgba(241,196,15,0.38);
+  box-shadow:0 6px 26px rgba(192,57,43,0.45); margin-top:14px; transition:var(--t);
+}
+.btn-rsvp:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(192,57,43,0.60); }
+.rsvp-success { display:none; text-align:center; padding:32px 0; animation:fade-up 0.6s ease; }
+.rsvp-success.show { display:block; }
+.rsvp-success-icon { font-size:3rem; color:var(--hijau); margin-bottom:16px; }
+.rsvp-success-msg { font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--merah); }
+
+/* ══════════════════════════════
+   §12  WISHES
+══════════════════════════════ */
+#wishes { background: var(--putih-off); padding: var(--gap-sec) 0; }
+.wishes-inner { max-width:820px; margin:0 auto; padding:0 var(--pad-desk); }
+.wish-form-card {
+  background:#fff; border-radius:var(--r-card);
+  padding:40px 36px; margin-bottom:44px;
+  box-shadow:var(--sh-merah); border:1px solid rgba(241,196,15,0.18);
+  position:relative; overflow:hidden;
+}
+.wish-form-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg, var(--merah), var(--kuning), var(--hijau));
+}
+.wish-form-title { font-family:'Cormorant Garamond',serif; font-size:1.28rem; font-weight:600; color:var(--merah); margin-bottom:20px; }
+.btn-wish {
+  margin-top:12px; display:inline-flex; align-items:center; gap:8px;
+  padding:13px 32px; border-radius:var(--r-pill);
+  background:linear-gradient(135deg,var(--merah),var(--merah-tua));
+  color:var(--kuning-lt); font-family:'Poppins',sans-serif;
+  font-size:12px; font-weight:600; letter-spacing:1.5px;
+  border:1px solid rgba(241,196,15,0.32);
+  box-shadow:0 5px 18px rgba(192,57,43,0.40); transition:var(--t);
+}
+.btn-wish:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(192,57,43,0.55); }
+.wishes-list { display:flex; flex-direction:column; gap:16px; }
+.wish-card {
+  background:#fff; border-radius:18px; padding:26px;
+  box-shadow:0 4px 20px rgba(28,17,9,0.09);
+  border-left:4px solid var(--merah);
+  display:flex; gap:18px; align-items:flex-start;
+}
+.wish-avatar {
+  width:50px; height:50px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(135deg,var(--merah),var(--merah-tua));
+  border:2px solid var(--kuning);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:1.05rem; color:var(--kuning-lt);
+}
+.wish-name { font-family:'Poppins',sans-serif; font-size:0.86rem; font-weight:600; color:var(--merah); margin-bottom:3px; }
+.wish-time { font-family:'Poppins',sans-serif; font-size:0.72rem; color:var(--c-muted); margin-bottom:8px; }
+.wish-msg  { font-family:'Cormorant Garamond',serif; font-size:1rem; color:#7A5A2A; line-height:1.75; font-style:italic; }
+
+/* ══════════════════════════════
+   §13  MAPS
+══════════════════════════════ */
+#maps { background: var(--putih-off); padding: var(--gap-sec) 0; }
+.maps-inner { max-width:940px; margin:0 auto; padding:0 var(--pad-desk); }
+.map-wrap {
+  border-radius:var(--r-card); overflow:hidden; box-shadow:var(--sh-deep);
+  border:3px solid rgba(241,196,15,0.22); margin-bottom:28px; height:420px;
+}
+.map-wrap iframe { width:100%; height:100%; border:none; display:block; }
+.map-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.btn-gmaps {
+  display:inline-flex; align-items:center; gap:10px; padding:15px 32px; border-radius:var(--r-pill);
+  background:#4285F4; color:#fff; font-family:'Poppins',sans-serif; font-size:13px; font-weight:600; letter-spacing:1px;
+  box-shadow:0 6px 22px rgba(66,133,244,0.38); transition:var(--t);
+}
+.btn-gmaps:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(66,133,244,0.52); }
+.btn-waze {
+  display:inline-flex; align-items:center; gap:10px; padding:15px 32px; border-radius:var(--r-pill);
+  background:#05C8F6; color:#fff; font-family:'Poppins',sans-serif; font-size:13px; font-weight:600; letter-spacing:1px;
+  box-shadow:0 6px 22px rgba(5,200,246,0.38); transition:var(--t);
+}
+.btn-waze:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(5,200,246,0.52); }
+
+/* ══════════════════════════════
+   §14  CLOSING
+══════════════════════════════ */
+#closing {
+  background:linear-gradient(180deg, var(--merah-gelap) 0%, var(--hitam) 100%);
+  padding:120px 0; text-align:center; position:relative; overflow:hidden;
+}
+/* Dayak motif bg closing */
+#closing::before {
+  content:''; position:absolute; inset:0; z-index:0;
+  background:url('../../../asset_dayak/Modern Kalimantan Dayak Motifs Vector, Motive, Dayak, Dayak Motifs PNG and Vector with Transparent Background for Free Download.jpeg') center/cover no-repeat;
+  opacity:0.05;
+}
+/* Dayak border image atas & bawah closing */
+.closing-dayak-top {
+  position:absolute; top:0; left:0; right:0; height:80px; z-index:1; pointer-events:none;
+  background:url('../../../asset_dayak/Beautiful Dayak Border.jpeg') top center/cover no-repeat;
+  opacity:0.15;
+  mask-image:linear-gradient(180deg,rgba(0,0,0,1) 0%,transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,1) 0%,transparent 100%);
+}
+.closing-dayak-bot {
+  position:absolute; bottom:0; left:0; right:0; height:80px; z-index:1; pointer-events:none;
+  background:url('../../../asset_dayak/Beautiful Dayak Border.jpeg') bottom center/cover no-repeat;
+  opacity:0.15; transform:scaleY(-1);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,1) 0%,transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,1) 0%,transparent 100%);
+}
+.closing-inner { max-width:720px; margin:0 auto; padding:0 var(--pad-desk); position:relative; z-index:2; }
+.closing-quote {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.02rem,2.3vw,1.25rem); color:rgba(253,250,244,0.88);
+  font-style:italic; line-height:1.95; margin-bottom:40px;
+}
+.closing-names {
+  font-family:'Great Vibes',cursive; font-size:clamp(3rem,8vw,5.2rem);
+  color:var(--kuning); margin-bottom:14px;
+  text-shadow:0 4px 28px rgba(241,196,15,0.38);
+}
+.closing-date { font-family:'Cormorant Garamond',serif; font-size:1rem; letter-spacing:4.5px; color:rgba(253,250,244,0.62); }
+.closing-deco { position:absolute; font-size:clamp(70px,12vw,130px); opacity:0.10; pointer-events:none; }
+.closing-deco.tl { top:-10px; left:-10px; transform:rotate(-25deg); }
+.closing-deco.br { bottom:-10px; right:-10px; transform:rotate(15deg); }
+
+/* ══════════════════════════════
+   §15  FOOTER
+══════════════════════════════ */
+footer {
+  background:var(--hitam); padding:48px 24px; text-align:center;
+  border-top:1px solid rgba(241,196,15,0.16); position:relative;
+}
+/* Dayak border image di atas footer */
+.footer-dayak-img {
+  width:100%; height:36px; object-fit:cover;
+  opacity:0.16; display:block; margin-bottom:24px;
+}
+.footer-brand { font-family:'Great Vibes',cursive; font-size:2.2rem; color:var(--kuning); margin-bottom:6px; }
+.footer-tagline { font-family:'Cormorant Garamond',serif; font-size:0.86rem; color:rgba(253,250,244,0.44); font-style:italic; margin-bottom:20px; letter-spacing:1.5px; }
+.footer-social { display:flex; gap:12px; justify-content:center; margin-bottom:20px; }
+.footer-social a {
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(241,196,15,0.10); border:1px solid rgba(241,196,15,0.28);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--kuning); font-size:1rem; transition:var(--t);
+}
+.footer-social a:hover { background:var(--merah); border-color:var(--merah); color:var(--kuning-lt); transform:translateY(-3px); }
+.footer-copy { font-family:'Poppins',sans-serif; font-size:0.70rem; color:rgba(253,250,244,0.26); letter-spacing:1px; margin-bottom:16px; }
+/* 5-warna Dayak stripe penutup */
+.footer-stripe {
+  height:5px; width:100%;
+  background:linear-gradient(90deg,
+    var(--merah) 0%, var(--merah) 20%,
+    var(--kuning) 20%, var(--kuning) 40%,
+    var(--putih-off) 40%, var(--putih-off) 60%,
+    var(--hitam2) 60%, var(--hitam2) 80%,
+    var(--hijau) 80%, var(--hijau) 100%
+  );
+}

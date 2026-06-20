@@ -1,0 +1,114 @@
+/* ==============================================
+   BASE.CSS — DESIGN2 Dayak Wedding
+   Warna: Merah(#C0392B) Kuning(#F1C40F) Putih(#FDFAF4) Hitam(#1C1109) Hijau(#1E8449)
+=============================================== */
+:root {
+  --merah:      #C0392B;
+  --merah-tua:  #922B21;
+  --merah-gelap:#6E1F18;
+  --kuning:     #F1C40F;
+  --kuning-tua: #D4AC0D;
+  --kuning-lt:  #F9E44A;
+  --putih:      #FDFAF4;
+  --putih-off:  #F5EFE6;
+  --hitam:      #1C1109;
+  --hitam2:     #2D1A0A;
+  --hijau:      #1E8449;
+  --hijau-tua:  #145A32;
+
+  --c-text:     #2D1A0A;
+  --c-muted:    #7D5A3C;
+  --c-card:     #FDF6EC;
+
+  --sh-merah: 0 8px 32px rgba(192,57,43,0.30);
+  --sh-deep:  0 20px 60px rgba(28,17,9,0.25);
+  --sh-card:  0 4px 20px rgba(28,17,9,0.12);
+  --sh-lift:  0 16px 48px rgba(28,17,9,0.28);
+
+  --r-card: 20px;
+  --r-pill: 50px;
+  --r-sm:   14px;
+  --ease:   cubic-bezier(0.22, 1, 0.36, 1);
+  --t:      all 0.42s var(--ease);
+
+  --gap-sec:  110px;
+  --pad-desk: 60px;
+  --pad-tab:  36px;
+  --pad-mob:  20px;
+  --max-w:    1100px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Poppins', sans-serif; background: var(--hitam); color: var(--c-text); overflow-x: hidden; line-height: 1.7; }
+img  { max-width: 100%; display: block; }
+a    { text-decoration: none; color: inherit; }
+ul   { list-style: none; }
+button { cursor: pointer; border: none; outline: none; background: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; outline: none; border: none; }
+
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--hitam); }
+::-webkit-scrollbar-thumb { background: var(--kuning); border-radius: 3px; }
+
+section { position: relative; overflow: hidden; }
+.sec-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-desk); }
+
+.sec-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  color: var(--kuning);
+  text-align: center; line-height: 1.15; margin-bottom: 10px;
+}
+.sec-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  text-align: center; letter-spacing: 2.5px;
+  opacity: 0.78; margin-bottom: 52px;
+  font-style: italic; color: var(--putih);
+}
+
+/* Dayak 5-warna divider */
+.dayak-stripe {
+  display: flex; width: 100%; height: 5px;
+  overflow: hidden;
+}
+.dayak-stripe span { flex: 1; display: block; }
+.dayak-stripe .s-merah  { background: var(--merah); }
+.dayak-stripe .s-kuning { background: var(--kuning); }
+.dayak-stripe .s-putih  { background: var(--putih); }
+.dayak-stripe .s-hitam  { background: var(--hitam2); }
+.dayak-stripe .s-hijau  { background: var(--hijau); }
+
+/* Line divider emas */
+.dayak-line {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; margin: 24px auto;
+}
+.dayak-line::before, .dayak-line::after {
+  content: ''; flex: 1; max-width: 120px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--kuning), transparent);
+}
+.dayak-line i { color: var(--kuning); font-size: 0.85rem; }
+
+/* Particles */
+.particles-wrap { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.p-dot {
+  position: absolute; border-radius: 50%;
+  background: rgba(241,196,15,0.18);
+  animation: p-drift linear infinite;
+}
+.petal { position: absolute; pointer-events: none; animation: petal-fall linear infinite; z-index: 1; }
+
+/* Keyframes */
+@keyframes p-drift    { 0%{transform:translateY(0) scale(1);opacity:.6} 100%{transform:translateY(-160px) scale(.3);opacity:0} }
+@keyframes petal-fall { 0%{transform:translateY(-30px) rotate(0deg);opacity:.8} 100%{transform:translateY(115vh) rotate(480deg) translateX(60px);opacity:0} }
+@keyframes fade-up    { from{transform:translateY(28px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes flip-num   { from{transform:rotateX(-90deg);opacity:0} to{transform:rotateX(0);opacity:1} }
+@keyframes shake      { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-7px)} 40%{transform:translateX(7px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+@keyframes spin-slow  { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes float-y    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes shimmer    { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@keyframes pulse-ring { 0%,100%{opacity:.2;transform:scale(1)} 50%{opacity:.5;transform:scale(1.04)} }
+@keyframes play-pulse { 0%,100%{box-shadow:0 0 0 14px rgba(241,196,15,.15),0 8px 32px rgba(241,196,15,.4)} 50%{box-shadow:0 0 0 28px rgba(241,196,15,.05),0 8px 32px rgba(241,196,15,.55)} }
+@keyframes kenong     { 0%,100%{filter:drop-shadow(0 0 4px rgba(241,196,15,.4))} 50%{filter:drop-shadow(0 0 14px rgba(241,196,15,.9))} }
