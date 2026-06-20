@@ -5,7 +5,7 @@
   position: fixed; inset: 0; z-index: 9999;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
-  background: radial-gradient(ellipse at 40% 55%, var(--merah) 0%, var(--merah-gelap) 50%, var(--hitam) 100%);
+  background: radial-gradient(ellipse at 40% 55%, #8B1A1A 0%, #3D0A0A 50%, #1C1109 100%);
   transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease);
   will-change: opacity, transform, filter;
 }
@@ -13,7 +13,7 @@
 
 .cover-photo-bg {
   position: absolute; inset: 0; z-index: 0;
-  background: radial-gradient(ellipse at 50% 35%, var(--merah) 0%, var(--merah-gelap) 45%, var(--hitam) 100%);
+  background: radial-gradient(ellipse at 50% 35%, #8B1A1A 0%, #5C0E0E 45%, #1C1109 100%);
   background-size: cover; background-position: center;
   transform: scale(1.05); transition: transform 8s ease;
 }
@@ -23,7 +23,7 @@
 .cover-dayak-top {
   position: absolute; top: 0; left: 0; right: 0; height: 120px;
   z-index: 2; pointer-events: none;
-  background: url('../asset_dayak/Beautiful Dayak Border.jpeg') top center / cover no-repeat;
+  background: url('../assets/asset_dayak/Beautiful Dayak Border.jpeg') top center / cover no-repeat;
   opacity: 0.25;
   mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, transparent 100%);
   -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, transparent 100%);
@@ -31,7 +31,7 @@
 .cover-dayak-bot {
   position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
   z-index: 2; pointer-events: none;
-  background: url('../asset_dayak/Beautiful Dayak Border.jpeg') bottom center / cover no-repeat;
+  background: url('../assets/asset_dayak/Beautiful Dayak Border.jpeg') bottom center / cover no-repeat;
   opacity: 0.25; transform: scaleY(-1);
   mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, transparent 100%);
   -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, transparent 100%);
@@ -41,7 +41,7 @@
 .cover-motif-tl {
   position: absolute; top: 0; left: 0;
   width: 240px; height: 240px; z-index: 2; pointer-events: none;
-  background: url('../asset_dayak/Modern Kalimantan Dayak Motifs Vector, Motive, Dayak, Dayak Motifs PNG and Vector with Transparent Background for Free Download.jpeg') center/cover no-repeat;
+  background: url('../assets/asset_dayak/Modern Kalimantan Dayak Motifs Vector, Motive, Dayak, Dayak Motifs PNG and Vector with Transparent Background for Free Download.jpeg') center/cover no-repeat;
   opacity: 0.22;
   mask-image: radial-gradient(circle at top left, black 35%, transparent 70%);
   -webkit-mask-image: radial-gradient(circle at top left, black 35%, transparent 70%);
@@ -49,7 +49,7 @@
 .cover-motif-br {
   position: absolute; bottom: 0; right: 0;
   width: 240px; height: 240px; z-index: 2; pointer-events: none;
-  background: url('../asset_dayak/Modern Kalimantan Dayak Motifs Vector, Motive, Dayak, Dayak Motifs PNG and Vector with Transparent Background for Free Download.jpeg') center/cover no-repeat;
+  background: url('../assets/asset_dayak/Modern Kalimantan Dayak Motifs Vector, Motive, Dayak, Dayak Motifs PNG and Vector with Transparent Background for Free Download.jpeg') center/cover no-repeat;
   opacity: 0.22; transform: rotate(180deg);
   mask-image: radial-gradient(circle at top left, black 35%, transparent 70%);
   -webkit-mask-image: radial-gradient(circle at top left, black 35%, transparent 70%);
@@ -71,10 +71,15 @@
 .cover-corner.bl { bottom:22px; left:22px;  border-width:0 0 2px 2px; }
 .cover-corner.br { bottom:22px; right:22px; border-width:0 2px 2px 0; }
 
-/* ── Stripe gradient halus di atas & bawah frame ── */
-.cover-stripe-t { position: absolute; top: 16px; left: 16px; right: 16px; height: 4px; z-index: 5; display: flex; background: linear-gradient(90deg, var(--merah) 0%, var(--kuning) 100%); }
-.cover-stripe-b { position: absolute; bottom: 16px; left: 16px; right: 16px; height: 4px; z-index: 5; display: flex; background: linear-gradient(90deg, var(--merah) 0%, var(--kuning) 100%); }
-.cover-stripe-t span, .cover-stripe-b span { display: none; }
+/* ── 5-warna Dayak stripe di atas & bawah frame ── */
+.cover-stripe-t { position: absolute; top: 16px; left: 16px; right: 16px; height: 4px; z-index: 5; display: flex; }
+.cover-stripe-b { position: absolute; bottom: 16px; left: 16px; right: 16px; height: 4px; z-index: 5; display: flex; }
+.cover-stripe-t span, .cover-stripe-b span { flex: 1; display: block; }
+.cs-merah  { background: var(--merah); }
+.cs-kuning { background: var(--kuning); }
+.cs-putih  { background: var(--putih); opacity: 0.6; }
+.cs-hitam  { background: var(--hitam2); }
+.cs-hijau  { background: var(--hijau); }
 
 /* ── Content ── */
 .cover-content {
